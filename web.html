@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Page Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#what-we-do">What We Do</a></li>
+            <li><a href="#arbutus">Arbutus</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <section id="home">
+        <h1>Home</h1>
+        <p>Welcome to our website!</p>
+    </section>
+    <section id="overview">
+        <h1>Overview</h1>
+        <p>Here is an overview of our services.</p>
+    </section>
+    <section id="what-we-do">
+        <h1>What We Do</h1>
+        <p>Details about what we do.</p>
+    </section>
+    <section id="arbutus">
+        <h1>Arbutus</h1>
+        <p>Information about Arbutus.</p>
+    </section>
+    <section id="contact">
+        <h1>Contact</h1>
+        <p>Get in touch with us!</p>
+    </section>
+    <script src="scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    const links = document.querySelectorAll('nav ul li a');
+
+    for (const link of links) {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+
+            window.scrollTo({
+                top: targetSection.offsetTop - 60,
+                behavior: 'smooth'
+            });
+        });
+    }
+});
+
+    </script>
+</body>
+</html>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: #333;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+}
+
+nav ul li a:hover {
+    background-color: #575757;
+}
+
+section {
+    padding: 60px 20px;
+    margin-top: 60px;
+}
+
+#home {
+    background-color: #f4f4f4;
+}
+
+#overview {
+    background-color: #e4e4e4;
+}
+
+#what-we-do {
+    background-color: #d4d4d4;
+}
+
+#arbutus {
+    background-color: #c4c4c4;
+}
+
+#contact {
+    background-color: #b4b4b4;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+</style>
